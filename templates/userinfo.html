@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        .info h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Information</h1>
+        <div class="info">
+            <h2>Name: {{ user[1] }}</h2>
+            <h2>Email: {{ user[2] }}</h2>
+        </div>
+        <div class="info">
+            <h3>Body Mass Index (BMI) Information:</h3>
+            <p>
+                Your BMI is a measure of body fat based on height and weight. Here's what your BMI indicates:
+                <ul>
+                    <li>If your BMI is less than 18.5, it falls within the underweight range.</li>
+                    <li>If your BMI is 18.5 to 24.9, it falls within the healthy weight range.</li>
+                    <li>If your BMI is 25.0 to 29.9, it falls within the overweight range.</li>
+                    <li>If your BMI is 30.0 or higher, it falls within the obese range.</li>
+                </ul>
+            </p>
+            <h2>BMI: {{ bmi }}</h2>
+        </div>
+        <div class="info">
+            <h3>Basal Metabolic Rate (BMR):</h3>
+            <p>
+                Your BMR represents the number of calories your body needs to maintain basic physiological functions at rest.
+                <br>
+                If you lay on bed for the whole day, your body would still need {{ bmr }} calories.
+            </p>
+            <h2>BMR: {{ bmr }}</h2>
+        </div>
+        <div class="info">
+            <h3>Daily Caloric Intake Recommendations:</h3>
+            <p>
+                Your daily calorie needs depend on your activity level. Here are some recommendations:
+                <ul>
+                    <li>If you are less active, your daily calorie intake should be approximately {{ little }} calories.</li>
+                    <li>If you are moderately active, your daily calorie intake should be approximately {{ moderate }} calories.</li>
+                    <li>If you are very active, your daily calorie intake should be approximately {{ very_active }} calories.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="info">
+            <h3>Weekly Calorie Intake:</h3>
+            <p>
+                Here are your weekly calorie intake data:
+                <ul>
+                    <li>Monday: {{ weekly_calories[0] }}</li>
+                    <li>Tuesday: {{ weekly_calories[1]}}</li>
+                    <li>Wednesday: {{ weekly_calories[2] }}</li>
+                    <li>Thursday: {{ weekly_calories[3] }}</li>
+                    <li>Friday: {{ weekly_calories[4] }}</li>
+                    <li>Saturday: {{ weekly_calories[5] }}</li>
+                    <li>Sunday: {{ weekly_calories[6] }}</li>
+                </ul>
+            </p>
+        </div>
+        <div>
+            <button onclick="downloadHTML()">Download HTML</button>
+        </div>
+
+    </div>
+
+    <script>
+        function downloadHTML() {
+            var htmlContent = document.documentElement.outerHTML;
+            var blob = new Blob([htmlContent], { type: 'text/html' });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'user_information.html';
+            link.click();
+        }
+    </script>
+</body>
+</html>
