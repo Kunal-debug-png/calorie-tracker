@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user[1] }}!</h1>
+    <h2>Enter Your Health Data</h2>
+    <form action="/submit" method="POST">
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" name="weight" required><br><br>
+
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" name="height" required><br><br>
+
+        <label for="calorie_mon">Calories Monday:</label>
+        <input type="number" id="calorie_mon" name="calorie_mon" required><br><br>
+
+        <label for="calorie_tue">Calories Tuesday:</label>
+        <input type="number" id="calorie_tue" name="calorie_tue" required><br><br>
+
+        <label for="calorie_wed">Calories Wednesday:</label>
+        <input type="number" id="calorie_wed" name="calorie_wed" required><br><br>
+
+        <label for="calorie_thu">Calories Thursday:</label>
+        <input type="number" id="calorie_thu" name="calorie_thu" required><br><br>
+
+        <label for="calorie_fri">Calories Friday:</label>
+        <input type="number" id="calorie_fri" name="calorie_fri" required><br><br>
+
+        <label for="calorie_sat">Calories Saturday:</label>
+        <input type="number" id="calorie_sat" name="calorie_sat" required><br><br>
+
+        <label for="calorie_sun">Calories Sunday:</label>
+        <input type="number" id="calorie_sun" name="calorie_sun" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
